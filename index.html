@@ -23,12 +23,14 @@
 <main>
   <div class="h">A.O. SANTA MARIA DEGLI EVASI</div>
   <h1>Referto completo</h1>
-  <p>Paziente DI MARZO CRISTIAN &middot; Ricovero n. 2026/1031-0666<br>Apertura del referto video in corso&hellip;</p>
+  <p>Paziente DI MARZO CRISTIAN &middot; Ricovero n. 2026/1031-0666<br>Referto video disponibile. Alzare il volume prima dell'apertura.</p>
   <div class="bar"><i></i></div>
   <a class="btn" id="open" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Apri il referto</a>
+  <p style="margin-top:18px;font-size:12px"><a id="web" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" style="color:#5b6b63">Non si apre? Visualizza nel browser</a></p>
 </main>
 <script>
-  // Opens the YouTube app when installed, the website otherwise.
+  // The button opens the YouTube app when installed. App links only work from a tap: an automatic
+  // redirect to intent:// fails in Brave (ERR_UNKNOWN_URL_SCHEME, tested 2026-10-30), so there is none.
   var id = "dQw4w9WgXcQ";
   var web = "https://www.youtube.com/watch?v=" + id;
   var ua = navigator.userAgent || "";
@@ -39,10 +41,8 @@
       encodeURIComponent(web) + ";end";
   } else if (/iPhone|iPad|iPod/i.test(ua)) {
     target = "youtube://www.youtube.com/watch?v=" + id;
-    setTimeout(function () { if (!document.hidden) location.href = web; }, 1800);
   }
   document.getElementById("open").href = target;
-  location.href = target;
 </script>
 </body>
 </html>
